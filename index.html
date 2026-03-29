@@ -944,6 +944,19 @@
     .form-success { display: none; text-align: center; padding: 32px 16px; }
     .form-success h4 { font-family: 'Playfair Display', serif; font-size: 26px; color: var(--text); margin: 18px 0 10px; }
     .form-success p { font-size: 14px; color: var(--body); }
+    .form-error { display: none; align-items: center; gap: 10px; background: var(--red-pale); border: 1px solid rgba(194,48,48,0.2); border-radius: 8px; padding: 12px 16px; margin-top: 12px; font-size: 13px; color: var(--red); }
+    .form-error a { color: var(--red); font-weight: 600; }
+    .contact-direct-email {
+      display: flex; align-items: center; gap: 8px;
+      margin-top: 24px;
+      font-size: 13px;
+      color: rgba(255,255,255,0.4);
+      border-top: 1px solid rgba(255,255,255,0.07);
+      padding-top: 20px;
+    }
+    .contact-direct-email svg { flex-shrink: 0; stroke: rgba(255,255,255,0.35); }
+    .contact-direct-email a { color: rgba(255,255,255,0.75); font-weight: 500; text-decoration: none; border-bottom: 1px solid rgba(255,255,255,0.2); transition: color 0.2s; }
+    .contact-direct-email a:hover { color: #fff; border-bottom-color: #fff; }
     .success-icon { width: 60px; height: 60px; background: var(--green-pale); border: 1px solid rgba(26,138,86,0.25); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto; }
 
     /* ─── FOOTER ─── */
@@ -1852,12 +1865,29 @@
             <p>Certified Indonesian tax consultant handles your filing.</p>
           </div>
         </div>
+        <div class="contact-item">
+          <div class="contact-item-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
+          </div>
+          <div>
+            <h4>Tax Audit Assistance</h4>
+            <p>Already under DJP investigation? We represent you, manage the audit process end-to-end, and negotiate the best possible outcome on your behalf.</p>
+          </div>
+        </div>
+      </div>
+      <div class="contact-direct-email">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="15" height="15"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+        Prefer email? Write to us directly: <a href="mailto:contact@expat-tax-indonesia.id">contact@expat-tax-indonesia.id</a>
       </div>
     </div>
 
     <div class="contact-form-card fade-in">
       <div class="form-title">Send Your Request</div>
       <form id="contactForm" onsubmit="handleSubmit(event)">
+        <!-- Web3Forms access key — do not remove -->
+        <input type="hidden" name="access_key" value="REPLACE_WITH_YOUR_WEB3FORMS_KEY">
+        <input type="hidden" name="subject" value="New Consultation Request — ExpatTax Indonesia">
+        <input type="hidden" name="from_name" value="ExpatTax Indonesia Website">
         <div class="form-row">
           <div class="form-group">
             <label>Full Name *</label>
@@ -1903,6 +1933,10 @@
         </div>
         <h4>Request Received.</h4>
         <p>We'll respond within 24 hours to schedule your consultation.</p>
+      </div>
+      <div class="form-error" id="formError">
+        <svg viewBox="0 0 24 24" fill="none" stroke="var(--red)" stroke-width="2" width="20" height="20"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+        <span>Something went wrong. Please email us directly at <a href="mailto:contact@expat-tax-indonesia.id">contact@expat-tax-indonesia.id</a></span>
       </div>
     </div>
   </div>
@@ -2029,10 +2063,33 @@
     document.getElementById('quiz').scrollIntoView({ behavior:'smooth' });
   }
 
-  function handleSubmit(e) {
+  async function handleSubmit(e) {
     e.preventDefault();
-    document.getElementById('contactForm').style.display = 'none';
-    document.getElementById('formSuccess').style.display = 'block';
+    const form = document.getElementById('contactForm');
+    const btn  = form.querySelector('button[type="submit"]');
+    const orig = btn.textContent;
+    btn.textContent = 'Sending…';
+    btn.disabled = true;
+
+    try {
+      const data = new FormData(form);
+      const res  = await fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        body: data
+      });
+      const json = await res.json();
+      if (json.success) {
+        form.style.display = 'none';
+        document.getElementById('formSuccess').style.display = 'block';
+      } else {
+        throw new Error(json.message || 'Submission failed');
+      }
+    } catch (err) {
+      btn.textContent = orig;
+      btn.disabled = false;
+      const errEl = document.getElementById('formError');
+      if (errEl) errEl.style.display = 'block';
+    }
   }
 
   // Active nav on scroll
