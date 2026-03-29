@@ -569,6 +569,67 @@
     .coretax-warning p { font-size: 14px; line-height: 1.6; flex: 1; }
     .coretax-warning strong { color: #fff; }
 
+    /* Knowledge gap strip */
+    .ct-gap-strip {
+      background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(255,255,255,0.07);
+      border-radius: 14px;
+      padding: 36px 36px 24px;
+      margin-bottom: 24px;
+    }
+    .ct-gap-head {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.13em;
+      text-transform: uppercase;
+      color: rgba(255,200,100,0.75);
+      margin-bottom: 28px;
+    }
+    .ct-gap-head svg { color: rgba(255,200,100,0.75); flex-shrink: 0; }
+    .ct-gap-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+      margin-bottom: 24px;
+    }
+    .ct-gap-item { position: relative; padding-left: 0; }
+    .ct-gap-num {
+      font-size: 38px;
+      font-weight: 700;
+      color: rgba(255,255,255,0.05);
+      line-height: 1;
+      margin-bottom: 10px;
+      font-family: 'Playfair Display', serif;
+    }
+    .ct-gap-item h5 {
+      font-size: 13.5px;
+      font-weight: 600;
+      color: rgba(255,220,150,0.9);
+      margin-bottom: 9px;
+      line-height: 1.35;
+    }
+    .ct-gap-item p {
+      font-size: 13.5px;
+      color: rgba(255,255,255,0.48);
+      line-height: 1.65;
+    }
+    .ct-gap-item p strong { color: rgba(255,255,255,0.75); }
+    .ct-gap-footnote {
+      display: flex;
+      align-items: flex-start;
+      gap: 8px;
+      font-size: 12.5px;
+      color: rgba(255,180,80,0.6);
+      border-top: 1px solid rgba(255,255,255,0.06);
+      padding-top: 18px;
+      line-height: 1.5;
+      font-style: italic;
+    }
+    .ct-gap-footnote svg { flex-shrink: 0; margin-top: 2px; color: rgba(255,180,80,0.6); }
+
     @media (max-width: 768px) {
       #coretax { padding: 64px 20px; }
       .coretax-grid { grid-template-columns: 1fr; }
@@ -578,6 +639,8 @@
       .ct-step { padding-top: 0; padding-left: 30px; }
       .ct-dot { top: 0; left: 0; }
       .coretax-warning { flex-direction: column; align-items: flex-start; gap: 14px; }
+      .ct-gap-strip { padding: 24px 20px 18px; }
+      .ct-gap-grid { grid-template-columns: 1fr; gap: 20px; }
     }
 
     /* ─── GOOD NEWS ─── */
@@ -1439,6 +1502,35 @@
           </div>
         </div>
 
+      </div>
+
+      <!-- Knowledge gap strip -->
+      <div class="ct-gap-strip">
+        <div class="ct-gap-head">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="20" height="20"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+          Why Most Expats Are Caught Off Guard
+        </div>
+        <div class="ct-gap-grid">
+          <div class="ct-gap-item">
+            <div class="ct-gap-num">01</div>
+            <h5>«I didn't know I had to declare»</h5>
+            <p>The vast majority of Western expats arrive in Indonesia without being told that Indonesian tax residency triggers a <strong>worldwide income declaration</strong> obligation. Your employer, your bank, your landlord — none of them will tell you. By the time you find out, years of unreported income have already accumulated.</p>
+          </div>
+          <div class="ct-gap-item">
+            <div class="ct-gap-num">02</div>
+            <h5>CoreTax is intimidating by design</h5>
+            <p>The new platform uses Indonesian-language interfaces, requires digital certificates, and involves tax codes that even local accountants struggle with. Many expats attempt to start, hit the first administrative wall, and quietly abandon the process — <strong>unknowingly extending their legal exposure every year they delay</strong>.</p>
+          </div>
+          <div class="ct-gap-item">
+            <div class="ct-gap-num">03</div>
+            <h5>«It's complicated — I'll deal with it later»</h5>
+            <p>Administrative complexity creates a paralysis loop. DJP, however, has no such hesitation. CoreTax does not pause while you procrastinate. <strong>Ignorance of the law is not a recognised defence in Indonesian tax proceedings</strong> — and «I didn't understand the system» will not reduce a penalty assessment.</p>
+          </div>
+        </div>
+        <div class="ct-gap-footnote">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="15" height="15"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+          The combination of unawareness + complexity + procrastination is exactly the pattern CoreTax was built to exploit.
+        </div>
       </div>
 
       <div class="coretax-warning">
