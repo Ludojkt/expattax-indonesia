@@ -735,40 +735,148 @@
     .success-icon { width: 60px; height: 60px; background: var(--green-pale); border: 1px solid rgba(26,138,86,0.25); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto; }
 
     /* ─── FOOTER ─── */
-    footer { background: #040a14; border-top: 1px solid rgba(255,255,255,0.06); padding: 40px; }
-    .footer-inner { max-width: 1160px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; gap: 24px; flex-wrap: wrap; }
+    footer { background: #040a14; border-top: 1px solid rgba(255,255,255,0.06); padding: 32px 40px; }
+    .footer-inner { max-width: 1160px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; gap: 16px; flex-wrap: wrap; }
     .footer-logo { font-family: 'Playfair Display', serif; font-size: 18px; font-weight: 700; color: #fff; }
     .footer-logo span { color: var(--accent-light); }
-    footer p { font-size: 12px; color: rgba(255,255,255,0.25); line-height: 1.7; max-width: 600px; }
+    .footer-copy { font-size: 12px; color: rgba(255,255,255,0.25); }
+
+    /* ─── WHATSAPP WIDGET ─── */
+    .wa-widget {
+      position: fixed; bottom: 28px; right: 28px; z-index: 1000;
+      display: flex; flex-direction: column; align-items: flex-end; gap: 10px;
+    }
+    .wa-tooltip {
+      background: #fff; color: var(--text);
+      font-size: 13px; font-weight: 600;
+      padding: 8px 14px; border-radius: 8px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.14);
+      white-space: nowrap;
+      opacity: 0; transform: translateX(10px);
+      transition: opacity 0.2s, transform 0.2s;
+      pointer-events: none;
+      position: absolute; right: 68px; bottom: 12px;
+    }
+    .wa-widget:hover .wa-tooltip { opacity: 1; transform: translateX(0); }
+    .wa-btn {
+      width: 56px; height: 56px; background: #25d366;
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      box-shadow: 0 4px 20px rgba(37,211,102,0.4);
+      text-decoration: none;
+      transition: transform 0.2s, box-shadow 0.2s;
+      animation: wa-pulse 3s ease-in-out 3s infinite;
+    }
+    .wa-btn:hover { transform: scale(1.1); box-shadow: 0 8px 28px rgba(37,211,102,0.55); animation: none; }
+    .wa-btn svg { width: 30px; height: 30px; }
+    @keyframes wa-pulse {
+      0%, 100% { transform: scale(1); box-shadow: 0 4px 20px rgba(37,211,102,0.4); }
+      50% { transform: scale(1.06); box-shadow: 0 6px 28px rgba(37,211,102,0.6); }
+    }
 
     /* ─── RESPONSIVE ─── */
     @media (max-width: 1024px) {
       .hero-inner { grid-template-columns: 1fr; }
       .hero-right { display: none; }
-      .hero-left { padding-bottom: 80px; }
+      .hero-left { padding-bottom: 60px; }
       .fear-top { grid-template-columns: 1fr; gap: 24px; }
       .fear-grid { grid-template-columns: 1fr 1fr; }
-      .fear-card.wide { grid-column: span 2; }
-      .penalty-grid { grid-template-columns: 1fr; gap: 10px; }
       .good-inner { grid-template-columns: 1fr; gap: 40px; }
       .service-grid { grid-template-columns: 1fr; }
       .testimonials-layout { grid-template-columns: 1fr; gap: 40px; }
-      .contact-layout { grid-template-columns: 1fr; gap: 48px; }
+      .contact-layout { grid-template-columns: 1fr; gap: 40px; }
       .service-top { flex-direction: column; align-items: flex-start; }
     }
+
     @media (max-width: 768px) {
-      nav { padding: 0 20px; }
+      /* Nav */
+      nav { padding: 0 16px; height: 56px; }
       .nav-links { display: none; }
-      .container, .container-sm, .hero-inner, .trust-inner, .fear-layout, .good-inner, .service-top, .service-grid, .testimonials-layout, .contact-layout, .footer-inner { padding-left: 20px; padding-right: 20px; }
-      .trust-inner { grid-template-columns: 1fr; }
-      .trust-item { border-right: none; border-bottom: 1px solid var(--border); padding: 24px 20px; }
+      .nav-logo { font-size: 16px; }
+      .nav-cta { font-size: 12px; padding: 7px 14px; }
+
+      /* Deadline banner */
+      .deadline-banner { font-size: 11.5px; padding: 8px 14px; }
+
+      /* Hero */
+      #hero { padding: 52px 20px 40px; }
+      .hero-left h1 { font-size: 28px; }
+      .hero-left p { font-size: 15px; }
+      .hero-cta-row { flex-direction: column; align-items: flex-start; gap: 10px; }
+      .hero-stats { flex-direction: column; }
+      .stat { border-right: none; border-bottom: 1px solid var(--border); }
+      .stat:last-child { border-bottom: none; }
+
+      /* Trust bar */
+      #trust { padding: 0; }
+      .trust-inner { grid-template-columns: 1fr; padding: 0 20px; }
+      .trust-item { border-right: none; border-bottom: 1px solid var(--border); padding: 20px 0; }
+      .trust-item:last-child { border-bottom: none; }
+
+      /* Quiz */
+      #quiz { padding: 60px 20px; }
+      .quiz-question-wrap { padding: 20px 20px 20px; }
+      .quiz-nav { padding: 0 20px 22px; }
+      .quiz-meta { padding: 16px 20px 0; }
+      .quiz-question-text { font-size: 18px; }
+
+      /* Results */
+      #results { padding: 0 20px 60px; }
+
+      /* Fear */
+      #fear { padding: 60px 20px; }
+      .fear-top { padding-bottom: 28px; margin-bottom: 40px; }
+      .fear-top h2 { font-size: 30px; }
       .fear-grid { grid-template-columns: 1fr; }
-      .fear-card.wide { grid-column: auto; }
-      .quiz-question-wrap, .quiz-nav, .quiz-meta { padding-left: 20px; padding-right: 20px; }
+      .fear-card { padding: 28px 22px; }
+
+      /* Good news / compare */
+      #good { padding: 60px 20px; }
+      .good-inner { padding: 0 20px; }
+      .compare-header { grid-template-columns: 1fr; }
+      .compare-col-head.bad { border-right: none; border-bottom: 1px solid var(--border); }
+      .compare-body { grid-template-columns: 1fr; }
+      .compare-col.bad-col { border-right: none; border-bottom: 3px solid var(--border); }
+
+      /* Service */
+      #service { padding: 60px 20px; }
+      .service-top { padding: 0 20px; }
+      .service-grid { padding: 0 20px; }
+      .service-aside { gap: 16px; }
+      .smc-item { padding: 16px 20px; }
+      .smc-header, .smc-footer { padding: 20px; }
+      .advisor-stats { gap: 16px; }
+
+      /* Testimonials */
+      #social { padding: 60px 20px; }
+      .testimonials-layout { padding: 0 20px; }
+      .testimonials-grid { grid-template-columns: 1fr; }
+
+      /* Contact */
+      #contact { padding: 60px 20px; }
+      .contact-layout { padding: 0 20px; }
+      .contact-form-card { padding: 24px 20px; }
       .form-row { grid-template-columns: 1fr; }
-      .smc-item { padding: 18px 24px; }
-      .smc-header, .smc-footer { padding: 24px; }
-      #fear, #quiz, #service, #social, #good, #contact, #trust { padding-left: 20px; padding-right: 20px; }
+
+      /* Footer */
+      footer { padding: 28px 20px; }
+      .footer-inner { flex-direction: column; align-items: flex-start; gap: 8px; }
+
+      /* WhatsApp widget - smaller on mobile */
+      .wa-widget { bottom: 20px; right: 16px; }
+      .wa-btn { width: 50px; height: 50px; }
+      .wa-btn svg { width: 26px; height: 26px; }
+      .wa-tooltip { display: none; }
+    }
+
+    @media (max-width: 420px) {
+      .hero-left h1 { font-size: 24px; }
+      .trust-num { font-size: 28px; }
+      .fear-card { padding: 22px 18px; }
+      .fear-card h3 { font-size: 16px; }
+      .section-intro h2 { font-size: 24px; }
+      .smc-header h3 { font-size: 20px; }
+      .price-amount { font-size: 30px; }
     }
   </style>
 </head>
@@ -1408,10 +1516,19 @@
 <footer>
   <div class="footer-inner">
     <div class="footer-logo">Expat<span>Tax</span> Indonesia</div>
-    <p>Jakarta Tax Compliance Advisory · Open Indonesia Consulting</p>
-    <p style="font-size:11px;color:rgba(255,255,255,0.18);max-width:500px;">This website provides general information only and does not constitute legal or tax advice. Tax regulations are subject to change. Always consult a qualified Konsultan Pajak for advice specific to your situation.</p>
+    <span class="footer-copy">© 2026 ExpatTax Indonesia · Jakarta Tax Compliance Advisory</span>
   </div>
 </footer>
+
+<!-- WHATSAPP WIDGET -->
+<div class="wa-widget">
+  <span class="wa-tooltip">💬 Chat on WhatsApp</span>
+  <a href="https://wa.me/628121153406?text=Hello%2C%20I%20would%20like%20to%20discuss%20my%20Indonesian%20tax%20situation." target="_blank" rel="noopener" class="wa-btn" aria-label="Contact on WhatsApp">
+    <svg viewBox="0 0 32 32" fill="#fff" xmlns="http://www.w3.org/2000/svg">
+      <path d="M16 2C8.27 2 2 8.27 2 16c0 2.45.66 4.74 1.81 6.72L2 30l7.49-1.78A13.92 13.92 0 0 0 16 30c7.73 0 14-6.27 14-14S23.73 2 16 2zm0 25.5c-2.2 0-4.27-.6-6.04-1.64l-.43-.26-4.45 1.06 1.09-4.33-.28-.44A11.45 11.45 0 0 1 4.5 16C4.5 9.61 9.61 4.5 16 4.5S27.5 9.61 27.5 16 22.39 27.5 16 27.5zm6.27-8.56c-.34-.17-2.02-1-2.34-1.11-.32-.11-.55-.17-.78.17-.23.34-.88 1.11-1.08 1.34-.2.23-.4.26-.74.09-.34-.17-1.44-.53-2.74-1.69-1.01-.9-1.7-2.01-1.9-2.35-.2-.34-.02-.52.15-.69.15-.15.34-.4.51-.6.17-.2.23-.34.34-.57.11-.23.06-.43-.03-.6-.09-.17-.78-1.88-1.07-2.57-.28-.68-.57-.58-.78-.59l-.66-.01c-.23 0-.6.09-.91.43-.31.34-1.19 1.16-1.19 2.84 0 1.68 1.22 3.3 1.39 3.53.17.23 2.4 3.67 5.82 5.14.81.35 1.45.56 1.95.72.82.26 1.56.22 2.15.13.66-.1 2.02-.82 2.31-1.62.29-.8.29-1.48.2-1.62-.08-.15-.31-.23-.65-.4z"/>
+    </svg>
+  </a>
+</div>
 
 <script>
   // ── QUIZ DATA ─────────────────────────────────────────────────────────
