@@ -360,13 +360,13 @@
     .result-retake:hover { color: var(--body); }
 
     /* ─── WHAT YOU NEED TO KNOW ─── */
-    #fear {
+    #key-facts {
       background: var(--dark);
       padding: 110px 40px;
       position: relative;
       overflow: hidden;
     }
-    #fear::before {
+    #key-facts::before {
       content: '';
       position: absolute;
       top: -200px; right: -200px;
@@ -1110,7 +1110,7 @@
       #results { padding: 0 20px 60px; }
 
       /* Fear */
-      #fear { padding: 60px 20px; }
+      #key-facts { padding: 60px 20px; }
       .fear-top { padding-bottom: 28px; margin-bottom: 40px; }
       .fear-top h2 { font-size: 30px; }
       .fear-grid { grid-template-columns: 1fr; }
@@ -1179,7 +1179,7 @@
     <a href="#" class="nav-logo">Expat<span>Tax</span> Indonesia</a>
     <ul class="nav-links">
       <li><a href="#quiz">Risk Quiz</a></li>
-      <li><a href="#fear">Key Facts</a></li>
+      <li><a href="#key-facts">Key Facts</a></li>
       <li><a href="#coretax">CoreTax</a></li>
       <li><a href="#good">Good News</a></li>
       <li><a href="#service">Our Service</a></li>
@@ -1193,7 +1193,7 @@
   </nav>
   <div class="mobile-menu" id="mobileMenu">
     <a href="#quiz"    onclick="closeMobileMenu()">Risk Quiz</a>
-    <a href="#fear"    onclick="closeMobileMenu()">Key Facts</a>
+    <a href="#key-facts" onclick="closeMobileMenu()">Key Facts</a>
     <a href="#coretax" onclick="closeMobileMenu()">CoreTax</a>
     <a href="#good"    onclick="closeMobileMenu()">Good News</a>
     <a href="#service" onclick="closeMobileMenu()">Our Service</a>
@@ -1375,7 +1375,7 @@
 </section>
 
 <!-- WHAT YOU NEED TO KNOW -->
-<section id="fear">
+<section id="key-facts">
   <div class="fear-layout">
     <div class="fear-top fade-in">
       <div>
@@ -2093,7 +2093,7 @@
   }
 
   // Active nav on scroll
-  const secIds = ['quiz','fear','good','service','social','contact'];
+  const secIds = ['quiz','key-facts','good','service','social','contact'];
   const navAs = document.querySelectorAll('.nav-links a');
   new IntersectionObserver(entries => {
     entries.forEach(en => {
