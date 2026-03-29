@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://ludojkt.github.io/expattax-indonesia/sitemap.xml
