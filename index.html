@@ -444,6 +444,142 @@
     .penalty-item p { font-size: 13px; color: rgba(255,255,255,0.5); line-height: 1.55; }
     .penalty-item strong { color: #ff9090; }
 
+    /* ─── CORETAX ─── */
+    #coretax {
+      background: #07111f;
+      padding: 90px 40px;
+    }
+    #coretax .container { max-width: 1100px; margin: 0 auto; }
+    .coretax-inner h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(28px, 4vw, 42px);
+      font-weight: 700;
+      color: #fff;
+      margin-bottom: 18px;
+      line-height: 1.2;
+    }
+    .coretax-label { margin-bottom: 16px; }
+    .coretax-lead {
+      font-size: 16px;
+      color: rgba(255,255,255,0.65);
+      max-width: 780px;
+      line-height: 1.75;
+      margin-bottom: 52px;
+    }
+    .coretax-lead strong { color: #fff; }
+    .coretax-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 20px;
+      margin-bottom: 36px;
+    }
+    .coretax-card {
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 12px;
+      padding: 28px 28px 26px;
+      transition: border-color 0.2s, background 0.2s;
+    }
+    .coretax-card:hover {
+      background: rgba(255,255,255,0.07);
+      border-color: rgba(255,255,255,0.14);
+    }
+    .coretax-card--wide { grid-column: 1 / -1; }
+    .coretax-card-icon {
+      width: 52px; height: 52px;
+      background: rgba(194,48,48,0.15);
+      border-radius: 10px;
+      display: flex; align-items: center; justify-content: center;
+      margin-bottom: 18px;
+      color: #ff7070;
+    }
+    .coretax-card h4 {
+      font-size: 15px;
+      font-weight: 600;
+      color: #fff;
+      margin-bottom: 10px;
+    }
+    .coretax-card p {
+      font-size: 14px;
+      color: rgba(255,255,255,0.55);
+      line-height: 1.65;
+    }
+    /* Timeline inside wide card */
+    .coretax-timeline-label {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.35);
+      margin-bottom: 22px;
+    }
+    .coretax-timeline-items {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 0;
+      position: relative;
+    }
+    .coretax-timeline-items::before {
+      content: '';
+      position: absolute;
+      top: 8px; left: 8px; right: 8px;
+      height: 2px;
+      background: rgba(255,255,255,0.1);
+    }
+    .ct-step { position: relative; padding-top: 28px; padding-right: 16px; }
+    .ct-dot {
+      width: 16px; height: 16px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.15);
+      border: 2px solid rgba(255,255,255,0.2);
+      position: absolute;
+      top: 0; left: 0;
+    }
+    .ct-step.done .ct-dot { background: #c23030; border-color: #c23030; }
+    .ct-step.active .ct-dot {
+      background: #ff7070;
+      border-color: #ff7070;
+      box-shadow: 0 0 10px rgba(255,112,112,0.5);
+    }
+    .ct-content strong {
+      display: block;
+      font-size: 13px;
+      font-weight: 600;
+      color: #fff;
+      margin-bottom: 5px;
+    }
+    .ct-content span {
+      font-size: 12.5px;
+      color: rgba(255,255,255,0.45);
+      line-height: 1.5;
+    }
+    .ct-step.active .ct-content strong { color: #ff9090; }
+    /* Warning bar */
+    .coretax-warning {
+      display: flex;
+      align-items: center;
+      gap: 18px;
+      background: rgba(194,48,48,0.12);
+      border: 1px solid rgba(194,48,48,0.3);
+      border-radius: 12px;
+      padding: 22px 28px;
+      color: rgba(255,255,255,0.9);
+    }
+    .coretax-warning svg { flex-shrink: 0; color: #ff7070; }
+    .coretax-warning p { font-size: 14px; line-height: 1.6; flex: 1; }
+    .coretax-warning strong { color: #fff; }
+
+    @media (max-width: 768px) {
+      #coretax { padding: 64px 20px; }
+      .coretax-grid { grid-template-columns: 1fr; }
+      .coretax-card--wide { grid-column: 1; }
+      .coretax-timeline-items { grid-template-columns: 1fr; gap: 24px; }
+      .coretax-timeline-items::before { display: none; }
+      .ct-step { padding-top: 0; padding-left: 30px; }
+      .ct-dot { top: 0; left: 0; }
+      .coretax-warning { flex-direction: column; align-items: flex-start; gap: 14px; }
+    }
+
     /* ─── GOOD NEWS ─── */
     #good {
       background: var(--white);
@@ -955,6 +1091,7 @@
     <ul class="nav-links">
       <li><a href="#quiz">Risk Quiz</a></li>
       <li><a href="#fear">Key Facts</a></li>
+      <li><a href="#coretax">CoreTax</a></li>
       <li><a href="#good">Good News</a></li>
       <li><a href="#service">Our Service</a></li>
       <li><a href="#social">Testimonials</a></li>
@@ -968,6 +1105,7 @@
   <div class="mobile-menu" id="mobileMenu">
     <a href="#quiz"    onclick="closeMobileMenu()">Risk Quiz</a>
     <a href="#fear"    onclick="closeMobileMenu()">Key Facts</a>
+    <a href="#coretax" onclick="closeMobileMenu()">CoreTax</a>
     <a href="#good"    onclick="closeMobileMenu()">Good News</a>
     <a href="#service" onclick="closeMobileMenu()">Our Service</a>
     <a href="#social"  onclick="closeMobileMenu()">Testimonials</a>
@@ -1227,6 +1365,86 @@
         <div class="fear-severity danger">Asset Seizure</div>
         <h3>Your Indonesian Assets Are Exposed</h3>
         <p>DJP can <strong>freeze accounts and seize property</strong> held in Indonesia without a court ruling. <strong>It can happen before you know an investigation has begun.</strong></p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- CORETAX -->
+<section id="coretax">
+  <div class="container">
+    <div class="coretax-inner fade-in">
+      <div class="coretax-label">
+        <span class="tag red">System Alert</span>
+      </div>
+      <h2>CoreTax: Indonesia's New All-Seeing Tax Engine</h2>
+      <p class="coretax-lead">In 2025, Indonesia's Directorate General of Taxation (DJP) launched <strong>CoreTax</strong> — a fully integrated digital tax administration platform that replaces the fragmented legacy systems in place since the 1980s. For expats who have not yet declared, this changes everything.</p>
+
+      <div class="coretax-grid">
+
+        <div class="coretax-card">
+          <div class="coretax-card-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="32" height="32"><circle cx="12" cy="12" r="3"/><path d="M12 1v4M12 19v4M4.22 4.22l2.83 2.83M16.95 16.95l2.83 2.83M1 12h4M19 12h4M4.22 19.78l2.83-2.83M16.95 7.05l2.83-2.83"/></svg>
+          </div>
+          <h4>One Centralised Database</h4>
+          <p>CoreTax consolidates every taxpayer record — NPWP filings, bank reports, property registrations, payroll data, and customs declarations — into a single real-time platform accessible to DJP auditors nationwide.</p>
+        </div>
+
+        <div class="coretax-card">
+          <div class="coretax-card-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="32" height="32"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="M9 12l2 2 4-4"/></svg>
+          </div>
+          <h4>Automatic CRS Cross-Matching</h4>
+          <p>CRS data received from foreign banks is now automatically cross-referenced against your SPT filings. If your declared Indonesian income does not match the foreign assets and income reported by overseas institutions, the system flags a discrepancy — without any human auditor involved.</p>
+        </div>
+
+        <div class="coretax-card">
+          <div class="coretax-card-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="32" height="32"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/><path d="M6 8h4M6 12h8"/></svg>
+          </div>
+          <h4>Digital Audit Trails, No Paper Gaps</h4>
+          <p>Previously, enforcement depended on manual document requests that were easy to delay. Under CoreTax, every digital transaction, e-invoice, and financial record is logged and retrievable instantly. There is no longer a "paper gap" that buys time.</p>
+        </div>
+
+        <div class="coretax-card">
+          <div class="coretax-card-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="32" height="32"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+          </div>
+          <h4>Expat Profiles Are a Priority Target</h4>
+          <p>DJP has stated publicly that high-income foreign residents are among the priority audit segments for CoreTax's first enforcement cycle. Expats with undeclared foreign income or assets represent the highest-yield, easiest-to-detect cases in the new system.</p>
+        </div>
+
+        <div class="coretax-card coretax-card--wide">
+          <div class="coretax-timeline">
+            <div class="coretax-timeline-label">CoreTax Rollout Timeline</div>
+            <div class="coretax-timeline-items">
+              <div class="ct-step done">
+                <div class="ct-dot"></div>
+                <div class="ct-content"><strong>Jan 2025</strong><span>CoreTax goes live — replaces DJP Online for all new filings</span></div>
+              </div>
+              <div class="ct-step done">
+                <div class="ct-dot"></div>
+                <div class="ct-content"><strong>Mid 2025</strong><span>CRS 2024 data batch imported; automated cross-matching begins</span></div>
+              </div>
+              <div class="ct-step done">
+                <div class="ct-dot"></div>
+                <div class="ct-content"><strong>Late 2025</strong><span>First wave of computer-generated audit notices sent to flagged taxpayers</span></div>
+              </div>
+              <div class="ct-step active">
+                <div class="ct-dot"></div>
+                <div class="ct-content"><strong>2026 →</strong><span>Full enforcement cycle — penalty assessments and cekal (travel ban) orders issued</span></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="coretax-warning">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="22" height="22"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+        <p><strong>The window to act proactively is closing.</strong> Once CoreTax flags your profile and an audit case is opened, voluntary disclosure is no longer available and penalties increase significantly. The time to regularise your position is before the system finds you — not after.</p>
+        <a href="#contact" class="btn-primary" style="flex-shrink:0;">Assess My Risk Now</a>
       </div>
 
     </div>
