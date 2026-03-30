@@ -1710,8 +1710,8 @@
         </div>
       </div>
       <div class="smc-footer">
-        <div class="price-row"><div class="price-amount">IDR 15,000,000</div></div>
-        <div class="price-note">All-in. Fixed price. No hourly billing.</div>
+        <div class="price-row"><div class="price-amount">Contact Us for a Quote</div></div>
+        <div class="price-note">Tailored to your situation. Fixed price. No hourly billing.</div>
         <a href="#contact" class="btn btn-blue" style="width:100%;text-align:center;display:block;">Book Your Consultation →</a>
         <p style="text-align:center;font-size:12px;color:var(--muted);margin-top:10px;">Confidential · Jakarta-based · Fixed fee</p>
       </div>
@@ -1851,8 +1851,8 @@
             <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
           </div>
           <div>
-            <h4>Fixed Fee — IDR 15,000,000</h4>
-            <p>All-in. No hourly billing. No surprises.</p>
+            <h4>Transparent Fixed Fee</h4>
+            <p>Contact us for a quote. No hourly billing. No surprises.</p>
           </div>
         </div>
         <div class="contact-item">
@@ -1961,7 +1961,7 @@
 <!-- WHATSAPP WIDGET -->
 <div class="wa-widget">
   <span class="wa-tooltip">💬 Chat on WhatsApp</span>
-  <a href="https://wa.me/628121153406?text=Hello%2C%20I%20would%20like%20to%20discuss%20my%20Indonesian%20tax%20situation." target="_blank" rel="noopener" class="wa-btn" aria-label="Contact on WhatsApp">
+  <a href="https://wa.me/6287898725580?text=Hello%2C%20I%20would%20like%20to%20discuss%20my%20Indonesian%20tax%20situation." target="_blank" rel="noopener" class="wa-btn" aria-label="Contact on WhatsApp">
     <svg viewBox="0 0 32 32" fill="#fff" xmlns="http://www.w3.org/2000/svg">
       <path d="M16 2C8.27 2 2 8.27 2 16c0 2.45.66 4.74 1.81 6.72L2 30l7.49-1.78A13.92 13.92 0 0 0 16 30c7.73 0 14-6.27 14-14S23.73 2 16 2zm0 25.5c-2.2 0-4.27-.6-6.04-1.64l-.43-.26-4.45 1.06 1.09-4.33-.28-.44A11.45 11.45 0 0 1 4.5 16C4.5 9.61 9.61 4.5 16 4.5S27.5 9.61 27.5 16 22.39 27.5 16 27.5zm6.27-8.56c-.34-.17-2.02-1-2.34-1.11-.32-.11-.55-.17-.78.17-.23.34-.88 1.11-1.08 1.34-.2.23-.4.26-.74.09-.34-.17-1.44-.53-2.74-1.69-1.01-.9-1.7-2.01-1.9-2.35-.2-.34-.02-.52.15-.69.15-.15.34-.4.51-.6.17-.2.23-.34.34-.57.11-.23.06-.43-.03-.6-.09-.17-.78-1.88-1.07-2.57-.28-.68-.57-.58-.78-.59l-.66-.01c-.23 0-.6.09-.91.43-.31.34-1.19 1.16-1.19 2.84 0 1.68 1.22 3.3 1.39 3.53.17.23 2.4 3.67 5.82 5.14.81.35 1.45.56 1.95.72.82.26 1.56.22 2.15.13.66-.1 2.02-.82 2.31-1.62.29-.8.29-1.48.2-1.62-.08-.15-.31-.23-.65-.4z"/>
     </svg>
@@ -2026,6 +2026,7 @@
 
   function showResults() {
     const total = scores.reduce((a,b) => a+(b||0), 0);
+    const display = Math.min(20, Math.round(total / 38 * 20));
     document.getElementById('quizCard').style.display = 'none';
     const rSec = document.getElementById('results');
     rSec.style.display = 'block';
@@ -2033,28 +2034,37 @@
     let level, badge, headline, body, btnClass, btnText;
     if (total <= 8) {
       level='low'; badge='Low Exposure';
-      headline='You Appear to Be Compliant.';
-      body='Your answers suggest your Indonesian tax exposure is limited. That said, tax rules evolve — and one missed filing can erase years of compliance. A formal review confirms your position is solid before DJP\'s data matching reaches you.';
+      headline='You Appear to Be Compliant — But Stay Vigilant.';
+      body='Your answers suggest your Indonesian tax exposure is currently limited. However, tax rules evolve rapidly — and CoreTax now cross-checks every foreign account you hold. A formal review confirms your position is solid before DJP\'s automated matching flags an anomaly.';
       btnClass='btn btn-outline'; btnText='Book a Compliance Review →';
     } else if (total <= 20) {
       level='medium'; badge='Significant Exposure';
-      headline="You Have Gaps. Indonesia's Tax Authority Is Closing In.";
-      body='Your answers indicate you likely have undeclared foreign income, assets, or both. This is fixable — but only if you act before DJP acts first. Every month of delay increases your penalties. Voluntary correction now dramatically reduces your exposure.';
-      btnClass='btn btn-blue'; btnText='Book Your Consultation →';
+      headline='You Have Serious Gaps. DJP Is Already Looking.';
+      body='Your answers reveal likely undeclared foreign income, assets, or both. CoreTax has already begun cross-matching CRS data from your foreign banks against your Indonesian filings. This is fixable — but only if you act before DJP acts first. Every month of delay compounds your penalties and shrinks your options.';
+      btnClass='btn btn-blue'; btnText='Get Your Situation Assessed →';
     } else {
-      level='high'; badge='Serious Risk';
-      headline='You Are Exposed. This Is Serious.';
-      body="Your profile matches thousands of Western expats in Jakarta who have been living and earning globally without declaring to Indonesian tax authorities. Indonesia has been receiving your foreign bank data automatically since 2018. We have seen expats blocked at immigration. We have seen accounts frozen. It is not too late — but the window to act voluntarily is not unlimited.";
-      btnClass='btn btn-red'; btnText="Talk to an Advisor Today — Before It's Too Late →";
+      level='high'; badge='Critical Risk — Act Now';
+      headline='You Are Severely Exposed. Do Not Wait.';
+      body="Your profile places you among the highest-risk expats in Indonesia. CoreTax has your foreign bank data. It is cross-matching it right now. We have seen expats in your exact situation blocked at immigration without warning, accounts frozen overnight, and penalty assessments exceeding the original tax debt several times over. The window for voluntary correction is still open — but it closes the moment DJP opens a case file on you. That could be tomorrow.";
+      btnClass='btn btn-red'; btnText="Speak to an Advisor Today — Before It's Too Late →";
     }
+
+    const barPct = Math.round(display / 20 * 100);
+    const barColor = level === 'low' ? 'var(--green)' : level === 'medium' ? 'var(--orange)' : 'var(--red)';
 
     document.getElementById('resultStripe').className = 'result-stripe '+level;
     document.getElementById('resultBody').innerHTML = `
       <div class="result-badge ${level}">${badge}</div>
       <h3>${headline}</h3>
       <div class="result-score">
-        <div class="score-num ${level}">${total}</div>
-        <div class="score-txt">Your risk score<br><span style="font-size:11px;color:var(--muted)">out of 38 maximum</span></div>
+        <div class="score-num ${level}">${display}</div>
+        <div class="score-txt">Risk score<br><span style="font-size:11px;color:var(--muted)">out of 20</span></div>
+      </div>
+      <div style="margin:18px 0 24px;">
+        <div style="display:flex;justify-content:space-between;font-size:11px;color:var(--muted);margin-bottom:6px;"><span>Low</span><span>Critical</span></div>
+        <div style="height:8px;background:var(--border);border-radius:99px;overflow:hidden;">
+          <div style="height:100%;width:${barPct}%;background:${barColor};border-radius:99px;transition:width 1s ease;"></div>
+        </div>
       </div>
       <p>${body}</p>
       <a href="#contact" class="${btnClass}">${btnText}</a><br>
