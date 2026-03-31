@@ -367,7 +367,7 @@
     .score-txt { font-size: 13px; color: var(--muted); }
     .result-retake { margin-top: 14px; font-size: 13px; color: var(--muted); cursor: pointer; text-decoration: underline; background: none; border: none; font-family: 'Inter', sans-serif; }
     .result-retake:hover { color: var(--body); }
-    .btn-wa-result { display: flex; align-items: center; justify-content: center; gap: 9px; width: 100%; margin-top: 12px; padding: 13px 20px; background: #25d366; color: #fff; font-size: 14px; font-weight: 600; border-radius: 6px; text-decoration: none; transition: background 0.2s; }
+    .btn-wa-result { display: flex; align-items: center; justify-content: center; gap: 9px; width: 100%; padding: 13px 24px; background: #25d366; color: #fff; font-size: 14px; font-weight: 600; border-radius: 6px; text-decoration: none; transition: background 0.2s; }
     .btn-wa-result:hover { background: #1dba58; }
 
     /* ─── WHAT YOU NEED TO KNOW ─── */
@@ -2259,11 +2259,13 @@ We have handled these cases before. We know what DJP is looking for, what to say
         </div>
       </div>
       <p>${body}</p>
-      <a href="#contact" class="${btnClass}">${btnText}</a>
-      <a href="https://wa.me/6287898725580?text=Hello%2C%20I%20just%20completed%20the%20risk%20assessment%20and%20would%20like%20to%20discuss%20my%20Indonesian%20tax%20situation." target="_blank" rel="noopener" class="btn-wa-result">
-        <svg viewBox="0 0 32 32" fill="currentColor" width="18" height="18" xmlns="http://www.w3.org/2000/svg"><path d="M16 2C8.27 2 2 8.27 2 16c0 2.45.66 4.74 1.81 6.72L2 30l7.49-1.78A13.92 13.92 0 0 0 16 30c7.73 0 14-6.27 14-14S23.73 2 16 2zm6.27 19.44c-.34-.17-2.02-1-2.34-1.11-.32-.11-.55-.17-.78.17-.23.34-.88 1.11-1.08 1.34-.2.23-.4.26-.74.09-.34-.17-1.44-.53-2.74-1.69-1.01-.9-1.7-2.01-1.9-2.35-.2-.34-.02-.52.15-.69.15-.15.34-.4.51-.6.17-.2.23-.34.34-.57.11-.23.06-.43-.03-.6-.09-.17-.78-1.88-1.07-2.57-.28-.68-.57-.58-.78-.59l-.66-.01c-.23 0-.6.09-.91.43-.31.34-1.19 1.16-1.19 2.84 0 1.68 1.22 3.3 1.39 3.53.17.23 2.4 3.67 5.82 5.14.81.35 1.45.56 1.95.72.82.26 1.56.22 2.15.13.66-.1 2.02-.82 2.31-1.62.29-.8.29-1.48.2-1.62-.08-.15-.31-.23-.65-.4z"/></svg>
-        Chat on WhatsApp
-      </a><br>
+      <div style="display:flex;flex-direction:column;gap:10px;">
+        <a href="#contact" class="${btnClass}" style="text-align:center;">${btnText}</a>
+        <a href="https://wa.me/6287898725580?text=Hello%2C%20I%20just%20completed%20the%20risk%20assessment%20and%20would%20like%20to%20discuss%20my%20Indonesian%20tax%20situation." target="_blank" rel="noopener" class="btn-wa-result">
+          <svg viewBox="0 0 32 32" fill="currentColor" width="18" height="18" xmlns="http://www.w3.org/2000/svg"><path d="M16 2C8.27 2 2 8.27 2 16c0 2.45.66 4.74 1.81 6.72L2 30l7.49-1.78A13.92 13.92 0 0 0 16 30c7.73 0 14-6.27 14-14S23.73 2 16 2zm6.27 19.44c-.34-.17-2.02-1-2.34-1.11-.32-.11-.55-.17-.78.17-.23.34-.88 1.11-1.08 1.34-.2.23-.4.26-.74.09-.34-.17-1.44-.53-2.74-1.69-1.01-.9-1.7-2.01-1.9-2.35-.2-.34-.02-.52.15-.69.15-.15.34-.4.51-.6.17-.2.23-.34.34-.57.11-.23.06-.43-.03-.6-.09-.17-.78-1.88-1.07-2.57-.28-.68-.57-.58-.78-.59l-.66-.01c-.23 0-.6.09-.91.43-.31.34-1.19 1.16-1.19 2.84 0 1.68 1.22 3.3 1.39 3.53.17.23 2.4 3.67 5.82 5.14.81.35 1.45.56 1.95.72.82.26 1.56.22 2.15.13.66-.1 2.02-.82 2.31-1.62.29-.8.29-1.48.2-1.62-.08-.15-.31-.23-.65-.4z"/></svg>
+          Or contact us on WhatsApp
+        </a>
+      </div><br>
       <button class="result-retake" onclick="resetQuiz()">↺ Retake the quiz</button>
     `;
     document.getElementById('resultTrust').style.display = 'block';
