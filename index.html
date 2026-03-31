@@ -1233,8 +1233,8 @@
       <li><a href="#quiz">Risk Quiz</a></li>
       <li><a href="#key-facts">Key Facts</a></li>
       <li><a href="#coretax">CoreTax</a></li>
-      <li><a href="#good">Good News</a></li>
       <li><a href="#service">Our Service</a></li>
+      <li><a href="#approach">Our Approach</a></li>
       <li><a href="#social">Testimonials</a></li>
       <li><a href="#contact">Contact</a></li>
     </ul>
@@ -1246,9 +1246,9 @@
   <div class="mobile-menu" id="mobileMenu">
     <a href="#quiz"    onclick="closeMobileMenu()">Risk Quiz</a>
     <a href="#key-facts" onclick="closeMobileMenu()">Key Facts</a>
-    <a href="#coretax" onclick="closeMobileMenu()">CoreTax</a>
-    <a href="#good"    onclick="closeMobileMenu()">Good News</a>
-    <a href="#service" onclick="closeMobileMenu()">Our Service</a>
+    <a href="#coretax"   onclick="closeMobileMenu()">CoreTax</a>
+    <a href="#service"   onclick="closeMobileMenu()">Our Service</a>
+    <a href="#approach"  onclick="closeMobileMenu()">Our Approach</a>
     <a href="#social"  onclick="closeMobileMenu()">Testimonials</a>
     <a href="#contact" onclick="closeMobileMenu()">Contact</a>
     <a href="#quiz" class="mobile-cta" onclick="closeMobileMenu()">Check Your Risk Level →</a>
@@ -2291,7 +2291,7 @@
   }
 
   // Active nav on scroll
-  const secIds = ['quiz','key-facts','good','service','social','contact'];
+  const secIds = ['quiz','key-facts','coretax','service','approach','social','contact'];
   const navAs = document.querySelectorAll('.nav-links a');
   new IntersectionObserver(entries => {
     entries.forEach(en => {
