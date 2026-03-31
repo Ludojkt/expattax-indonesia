@@ -849,6 +849,46 @@
     .why-check { width: 18px; height: 18px; background: rgba(26,138,86,0.15); border-radius: 50%; flex-shrink: 0; margin-top: 2px; display: flex; align-items: center; justify-content: center; }
     .why-check svg { width: 10px; height: 10px; stroke: #4dd88a; fill: none; stroke-width: 2.5; }
 
+    /* ─── RESULT TRUST STRIP ─── */
+    .result-trust { display: none; max-width: 680px; margin: 32px auto 0; }
+    .rt-label { font-size: 11px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted); margin-bottom: 16px; text-align: center; }
+    .rt-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+    .rt-item { display: flex; align-items: flex-start; gap: 12px; background: var(--white); border: 1px solid var(--border); border-radius: 10px; padding: 16px; }
+    .rt-icon { flex-shrink: 0; width: 38px; height: 38px; background: var(--accent-pale); border-radius: 8px; display: flex; align-items: center; justify-content: center; color: var(--accent); }
+    .rt-item strong { display: block; font-size: 13px; font-weight: 600; color: var(--text); margin-bottom: 3px; }
+    .rt-item span { font-size: 12.5px; color: var(--body); line-height: 1.5; }
+
+    /* ─── AUDIT CARD ─── */
+    .audit-card { background: var(--white); border: 1.5px solid rgba(194,48,48,0.25); border-radius: 16px; padding: 28px; margin-bottom: 20px; }
+    .audit-card-header { display: flex; align-items: center; gap: 8px; font-size: 11px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--red); margin-bottom: 14px; }
+    .audit-card h4 { font-family: 'Playfair Display', serif; font-size: 20px; font-weight: 700; color: var(--text); margin-bottom: 12px; line-height: 1.3; }
+    .audit-card p { font-size: 13.5px; color: var(--body); line-height: 1.65; margin-bottom: 10px; }
+    .audit-points { display: flex; flex-direction: column; gap: 8px; margin-top: 14px; }
+    .audit-point { display: flex; align-items: flex-start; gap: 8px; font-size: 13px; color: var(--text); line-height: 1.5; }
+    .btn-red { background: var(--red); color: #fff; padding: 13px 24px; border-radius: 6px; font-size: 14px; font-weight: 600; text-decoration: none; display: inline-block; transition: background 0.2s; }
+    .btn-red:hover { background: #a82828; }
+
+    /* ─── OUR APPROACH ─── */
+    #approach { background: var(--dark); padding: 100px 40px; }
+    #approach .container { max-width: 1100px; margin: 0 auto; }
+    .approach-inner { display: grid; grid-template-columns: 1fr 1.4fr; gap: 64px; align-items: start; }
+    .approach-left .tag { margin-bottom: 16px; }
+    .approach-left h2 { font-family: 'Playfair Display', serif; font-size: clamp(28px, 3.5vw, 40px); font-weight: 700; color: #fff; margin-bottom: 16px; line-height: 1.2; }
+    .approach-lead { font-size: 15px; color: rgba(255,255,255,0.55); line-height: 1.75; margin-bottom: 28px; }
+    .approach-quote { border-left: 3px solid var(--accent); padding-left: 18px; margin: 0 0 32px; font-size: 14px; font-style: italic; color: rgba(255,255,255,0.5); line-height: 1.7; }
+    .approach-card { background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.08); border-radius: 14px; padding: 8px; }
+    .approach-item { display: flex; gap: 20px; align-items: flex-start; padding: 22px 20px; border-bottom: 1px solid rgba(255,255,255,0.06); }
+    .approach-item:last-child { border-bottom: none; }
+    .approach-num { font-family: 'Playfair Display', serif; font-size: 28px; font-weight: 700; color: rgba(255,255,255,0.08); line-height: 1; flex-shrink: 0; width: 36px; }
+    .approach-item h5 { font-size: 14px; font-weight: 600; color: #fff; margin-bottom: 6px; }
+    .approach-item p { font-size: 13.5px; color: rgba(255,255,255,0.45); line-height: 1.65; }
+
+    @media (max-width: 768px) {
+      .rt-grid { grid-template-columns: 1fr; }
+      .approach-inner { grid-template-columns: 1fr; gap: 36px; }
+      #approach { padding: 64px 20px; }
+    }
+
     /* ─── TESTIMONIALS ─── */
     #social { background: var(--white); padding: 100px 40px; border-top: 1px solid var(--border); }
     .testimonials-layout {
@@ -1381,6 +1421,48 @@
     <div class="result-stripe" id="resultStripe"></div>
     <div class="result-body" id="resultBody"></div>
   </div>
+  <!-- Trust strip shown with results -->
+  <div class="result-trust" id="resultTrust">
+    <div class="rt-label">Why work with us</div>
+    <div class="rt-grid">
+      <div class="rt-item">
+        <div class="rt-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="22" height="22"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 0 0-4 0v2"/></svg>
+        </div>
+        <div>
+          <strong>Fixed fee, full handling</strong>
+          <span>One price. Everything included — diagnostic, filing, prior-year corrections. No hourly surprises.</span>
+        </div>
+      </div>
+      <div class="rt-item">
+        <div class="rt-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="22" height="22"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+        </div>
+        <div>
+          <strong>Unlimited support until resolved</strong>
+          <span>Meetings included — online or face to face in Jakarta. We stay with you until DJP closes the matter.</span>
+        </div>
+      </div>
+      <div class="rt-item">
+        <div class="rt-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="22" height="22"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
+        </div>
+        <div>
+          <strong>No black box</strong>
+          <span>You understand exactly what is being filed and why. Full transparency — always.</span>
+        </div>
+      </div>
+      <div class="rt-item">
+        <div class="rt-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="22" height="22"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+        </div>
+        <div>
+          <strong>Built from experience</strong>
+          <span>After working with dozens of expats in this exact situation, we decided this was the only responsible way to operate.</span>
+        </div>
+      </div>
+    </div>
+  </div>
 </section>
 
 <!-- WHAT YOU NEED TO KNOW -->
@@ -1719,6 +1801,35 @@
     </div>
 
     <div class="service-aside">
+      <div class="audit-card fade-in">
+        <div class="audit-card-header">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="20" height="20"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
+          <span>Under DJP Tax Audit?</span>
+        </div>
+        <h4>The Clock Is Already Ticking.</h4>
+        <p>When DJP opens an audit case, Indonesian law sets strict deadlines for your response. Missing them — or responding incorrectly — dramatically worsens your position.</p>
+        <p>This is not the time to navigate the system alone. DJP tax officers communicate in Indonesian, follow formal administrative procedures, and expect precise answers. One wrong word in a response letter can escalate a routine audit into a criminal referral.</p>
+        <div class="audit-points">
+          <div class="audit-point">
+            <svg viewBox="0 0 24 24" fill="none" stroke="var(--red)" stroke-width="2.5" width="14" height="14"><polyline points="20 6 9 17 4 12"/></svg>
+            <span>We handle all communication with DJP on your behalf</span>
+          </div>
+          <div class="audit-point">
+            <svg viewBox="0 0 24 24" fill="none" stroke="var(--red)" stroke-width="2.5" width="14" height="14"><polyline points="20 6 9 17 4 12"/></svg>
+            <span>We know what tax officers look for — and what to avoid saying</span>
+          </div>
+          <div class="audit-point">
+            <svg viewBox="0 0 24 24" fill="none" stroke="var(--red)" stroke-width="2.5" width="14" height="14"><polyline points="20 6 9 17 4 12"/></svg>
+            <span>Experience with expat-specific audit cases in Indonesia</span>
+          </div>
+          <div class="audit-point">
+            <svg viewBox="0 0 24 24" fill="none" stroke="var(--red)" stroke-width="2.5" width="14" height="14"><polyline points="20 6 9 17 4 12"/></svg>
+            <span>We negotiate the best possible outcome within the legal framework</span>
+          </div>
+        </div>
+        <a href="#contact" class="btn btn-red" style="width:100%;text-align:center;display:block;margin-top:20px;">Get Audit Help Now →</a>
+        <p style="text-align:center;font-size:11.5px;color:var(--muted);margin-top:8px;">Don't wait — every day counts once an audit is opened</p>
+      </div>
       <div class="advisor-card fade-in">
         <div class="advisor-avatar-ring">🧭</div>
         <h4>Your Advisor</h4>
@@ -1759,6 +1870,55 @@
         <div class="why-item">
           <div class="why-check"><svg viewBox="0 0 10 8"><polyline points="1 4 3.5 6.5 9 1"/></svg></div>
           <span>Travel ban risk increases with outstanding obligations</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- OUR APPROACH -->
+<section id="approach">
+  <div class="container">
+    <div class="approach-inner fade-in">
+      <div class="approach-left">
+        <div class="tag blue" style="display:inline-flex;">Our Approach</div>
+        <h2>We Do It Differently.</h2>
+        <p class="approach-lead">Most tax advisors bill by the hour, answer your questions in jargon, and disappear once the invoice is paid. We decided that wasn't good enough.</p>
+        <blockquote class="approach-quote">
+          "After working with dozens of expats in this exact situation, we decided this was the only responsible way to operate."
+        </blockquote>
+        <a href="#contact" class="btn btn-blue" style="margin-top:8px;">Talk to Us →</a>
+      </div>
+      <div class="approach-right">
+        <div class="approach-card">
+          <div class="approach-item">
+            <div class="approach-num">01</div>
+            <div>
+              <h5>Fixed fee — everything included</h5>
+              <p>One price covers your full tax declaration, all prior-year corrections, and every step until the matter is resolved. No surprises, no upselling.</p>
+            </div>
+          </div>
+          <div class="approach-item">
+            <div class="approach-num">02</div>
+            <div>
+              <h5>Unlimited support until it's done</h5>
+              <p>Meetings are included — online, or face to face if you're in Jakarta. We stay with you until DJP closes the matter, however long that takes.</p>
+            </div>
+          </div>
+          <div class="approach-item">
+            <div class="approach-num">03</div>
+            <div>
+              <h5>Full transparency — no black box</h5>
+              <p>You understand exactly what is being filed and why. We explain every step in plain language. Your name is on the filing — you deserve to know what's in it.</p>
+            </div>
+          </div>
+          <div class="approach-item">
+            <div class="approach-num">04</div>
+            <div>
+              <h5>Built from real expat cases</h5>
+              <p>Every process we follow was shaped by working through dozens of real situations — missed filings, foreign assets, multi-country income, audit responses. Nothing theoretical.</p>
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -2071,12 +2231,14 @@
       <a href="#contact" class="${btnClass}">${btnText}</a><br>
       <button class="result-retake" onclick="resetQuiz()">↺ Retake the quiz</button>
     `;
+    document.getElementById('resultTrust').style.display = 'block';
     rSec.scrollIntoView({ behavior:'smooth', block:'start' });
   }
 
   function resetQuiz() {
     currentQ=0; selectedIdx=null; scores.fill(null);
     document.getElementById('results').style.display='none';
+    document.getElementById('resultTrust').style.display='none';
     document.getElementById('quizCard').style.display='block';
     renderQuestion();
     document.getElementById('quiz').scrollIntoView({ behavior:'smooth' });
