@@ -834,6 +834,9 @@
     .advisor-card h4 { font-family: 'Playfair Display', serif; font-size: 18px; font-weight: 700; color: var(--text); margin-bottom: 10px; }
     .advisor-card p { font-size: 13.5px; color: var(--body); line-height: 1.65; }
     .advisor-stats { display: flex; gap: 20px; margin-top: 20px; padding-top: 20px; border-top: 1px solid var(--border); }
+    .advisor-team-strip { display: flex; flex-direction: column; gap: 8px; margin-top: 16px; padding-top: 16px; border-top: 1px solid var(--border); }
+    .ats-item { display: flex; align-items: center; gap: 8px; font-size: 12.5px; color: var(--body); }
+    .ats-item svg { flex-shrink: 0; stroke: var(--accent); }
     .adv-stat-num { font-family: 'Playfair Display', serif; font-size: 24px; font-weight: 700; color: var(--text); }
     .adv-stat-label { font-size: 11.5px; color: var(--muted); line-height: 1.3; }
 
@@ -1832,8 +1835,8 @@
       </div>
       <div class="advisor-card fade-in">
         <div class="advisor-avatar-ring">🧭</div>
-        <h4>Your Advisor</h4>
-        <p>A Western expat based in Jakarta for <strong>16 years</strong>, with <strong>20 years of experience in finance</strong>. He works directly with expats to assess tax exposure, structure declarations, and coordinate with certified Indonesian tax consultants.</p>
+        <h4>Your Advisor & Team</h4>
+        <p>A Western expat based in Jakarta for <strong>16 years</strong>, with <strong>20 years of experience in finance</strong> — working alongside a team of <strong>fully certified Indonesian tax consultants (Konsultan Pajak)</strong> with direct relationships inside the DJP network.</p>
         <div class="advisor-stats">
           <div>
             <div class="adv-stat-num">16</div>
@@ -1846,6 +1849,20 @@
           <div>
             <div class="adv-stat-num">FR/EN</div>
             <div class="adv-stat-label">Languages<br>spoken</div>
+          </div>
+        </div>
+        <div class="advisor-team-strip">
+          <div class="ats-item">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="14" height="14"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+            <span>Certified Konsultan Pajak on every case</span>
+          </div>
+          <div class="ats-item">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="14" height="14"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+            <span>Established network within DJP tax offices</span>
+          </div>
+          <div class="ats-item">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="14" height="14"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+            <span>Hundreds of expat cases handled in Indonesia</span>
           </div>
         </div>
       </div>
