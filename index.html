@@ -2166,7 +2166,9 @@
     { text: "Do you own real estate abroad (not rented — just owned as an asset)?",
       options: [{ label:"No", score:0 },{ label:"Yes — and I declared it as a foreign asset in my Indonesian SPT", score:0 },{ label:"Yes — but I never declared it in Indonesia", score:3 },{ label:"Yes — I didn't know foreign property had to be declared", score:2 }] },
     { text: "How many years have you been living in Indonesia without filing a complete SPT including all foreign income and assets?",
-      options: [{ label:"I'm fully up to date", score:0 },{ label:"1 year", score:2 },{ label:"2–3 years", score:3 },{ label:"More than 3 years", score:4 },{ label:"I have never filed anything", score:5 }] }
+      options: [{ label:"I'm fully up to date", score:0 },{ label:"1 year", score:2 },{ label:"2–3 years", score:3 },{ label:"More than 3 years", score:4 },{ label:"I have never filed anything", score:5 }] },
+    { text: "Have you received any official letter from DJP — an SP2DK, audit notice, or tax assessment?",
+      options: [{ label:"No — I have not received anything", score:0 },{ label:"Yes — I received an SP2DK (data clarification request)", score:99 },{ label:"Yes — I received a formal audit notice or tax assessment", score:99 },{ label:"I received something but I'm not sure what it is", score:99 }] }
   ];
 
   let currentQ = 0, selectedIdx = null;
@@ -2203,19 +2205,28 @@
   });
 
   function showResults() {
-    const total = scores.reduce((a,b) => a+(b||0), 0);
-    const display = Math.min(20, Math.round(total / 38 * 20));
+    const auditFlag = scores[questions.length - 1] >= 99;
+    const rawTotal  = scores.reduce((a,b) => a+(b||0), 0);
+    const baseTotal = auditFlag ? rawTotal - 99 : rawTotal;
+    const display   = auditFlag ? 20 : Math.min(20, Math.round(baseTotal / 38 * 20));
     document.getElementById('quizCard').style.display = 'none';
     const rSec = document.getElementById('results');
     rSec.style.display = 'block';
 
     let level, badge, headline, body, btnClass, btnText;
-    if (total <= 8) {
+    if (auditFlag) {
+      level='high'; badge='⚠ CRITICAL — DJP Has Already Contacted You';
+      headline='An Audit Is Already Open. Every Hour Counts.';
+      body=`When DJP sends an SP2DK or audit notice, Indonesian tax law sets <strong>strict legal deadlines for your response</strong> — typically 14 to 30 days. Missing these deadlines, responding incorrectly, or providing incomplete information does not make the case go away. It makes it significantly worse — and can escalate a routine data check into a full criminal tax investigation.<br><br>
+DJP officers communicate exclusively in Indonesian, follow formal administrative procedures, and analyse every word of your response. This is not a conversation — it is a legal proceeding. <strong>One wrong sentence can transform a penalty assessment into a criminal referral.</strong><br><br>
+We have handled these cases before. We know what DJP is looking for, what to say, what not to say, and how to negotiate the best possible outcome from this position. But we need to act <strong>immediately</strong> — contact us today.`;
+      btnClass='btn btn-red'; btnText='Contact Us Now — Do Not Wait →';
+    } else if (baseTotal <= 8) {
       level='low'; badge='Low Exposure';
       headline='You Appear to Be Compliant — But Stay Vigilant.';
       body='Your answers suggest your Indonesian tax exposure is currently limited. However, tax rules evolve rapidly — and CoreTax now cross-checks every foreign account you hold. A formal review confirms your position is solid before DJP\'s automated matching flags an anomaly.';
       btnClass='btn btn-outline'; btnText='Book a Compliance Review →';
-    } else if (total <= 20) {
+    } else if (baseTotal <= 20) {
       level='medium'; badge='Significant Exposure';
       headline='You Have Serious Gaps. DJP Is Already Looking.';
       body='Your answers reveal likely undeclared foreign income, assets, or both. CoreTax has already begun cross-matching CRS data from your foreign banks against your Indonesian filings. This is fixable — but only if you act before DJP acts first. Every month of delay compounds your penalties and shrinks your options.';
